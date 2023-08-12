@@ -5,7 +5,7 @@ int main(void)
     printf("Enter X coordinate value: ");
     scanf("%d", &x);
 
-    printf("Enter X coordinate value: ");
+    printf("Enter Y coordinate value: ");
     scanf("%d", &y);
 
     if (x > 0 && y > 0)
