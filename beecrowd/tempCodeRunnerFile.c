@@ -2,15 +2,10 @@
 int main(void)
 {
 
-    int x;
-    scanf("%d", &x);
-
-    int temp;
-    for (int i = 1; i <= 1000; i++)
+    for (int i = 1; i <= 9; i++)
     {
-        if (i % temp == 2)
-        {
-            printf("%d\n", i);
-        }
+        printf("I=%d J=7\n",i);
+        printf("I=%d J=6\n",i);
+        printf("I=%d J=5\n",i);
     }
 }
