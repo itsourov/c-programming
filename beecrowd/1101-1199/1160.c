@@ -10,8 +10,9 @@ int main()
     {
         Year = 0;
         scanf("%d %d %lf %lf", &PA, &PB, &GA, &GB);
-        while (PB >= PA)
+        for (int i = 0; i < 150; i++)
         {
+
             // printf("current PA = %d\n", PA);
             // printf("this year PA will get = %.lf\n", (PA * GA) / 100);
 
@@ -21,7 +22,13 @@ int main()
             PA += (PA * GA) / 100;
             PB += (PB * GB) / 100;
             Year++;
+
+            if (PB < PA)
+            {
+                break;
+            }
         }
+
         if (Year > 100)
         {
             printf("Mais de 1 seculo.\n");
