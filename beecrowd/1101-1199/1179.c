@@ -34,14 +34,14 @@ int main()
         }
     }
 
-    int sizeOfImpar = sizeof(impar) / sizeof(impar[0]);
-    for (int i = 0; i < sizeOfImpar; i++)
+   
+    for (int i = 0; i < imparCount; i++)
     {
         printf("impar[%d] = %d\n", i, impar[i]);
     }
 
-    int sizeOfPar = sizeof(par) / sizeof(par[0]);
-    for (int i = 0; i < sizeOfPar; i++)
+    
+    for (int i = 0; i < parCount; i++)
     {
         printf("par[%d] = %d\n", i, par[i]);
     }
