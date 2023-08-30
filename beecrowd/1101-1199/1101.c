@@ -1,25 +1,30 @@
-// #include <stdio.h>
-// int main()
-// {
-//     int tempIntput = 1;
-//     int m, n;
-//     int arr[] = {1};
-//     int index = 0;
-//     for (int i = 0; tempIntput > 0; i++)
-//     {
-//         scanf("%d %d", &m, &n);
+#include <stdio.h>
+int main()
+{
 
-//         arr[index++] = m;
-//         arr[index++] = n;
+    int m = 1, n = 1, temp, i, sum;
+    while (1)
+    {
+        scanf("%d %d", &m, &n);
+        if (m <= 0 || n <= 0 )
+        {
+            break;
+        }
 
-//         if (m <= 0 || n <= 0)
-//         {
-//             tempIntput = 0;
-//         }
-//         printf("%d\n", index);
-//     }
+        if (m > n)
+        {
+            temp = m;
+            m = n;
+            n = temp;
+        }
+        sum = 0;
+        for (i = m; i <= n; i++)
+        {
+            printf("%d ", i);
+            sum += i;
+        }
+        printf("Sum=%d\n", sum);
+    }
 
-//     printf("size :%lu\n", sizeof(arr) / sizeof(arr[0]));
-
-//     return 0;
-// }
+    return 0;
+}
