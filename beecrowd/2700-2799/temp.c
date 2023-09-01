@@ -2,19 +2,7 @@
 int main()
 {
 
-    char a;
-
-    scanf("%c", &a);
-
-    if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'z'))
-    {
-        if (a == 'a' || a == 'e')
-        {
-            printf("vowel");
-        }
-    }
-    else
-    {
-        printf("not letter\n");
-    }
+    int A = 2, B = 5, C = 3;
+    B = B * B + A - C / A + C % A;
+    printf("%d\n", B);
 }
