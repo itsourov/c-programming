@@ -3,10 +3,10 @@ int main()
 {
 
     int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
-    // a = 1234;
-    // b = 12;
-    // c = 123;
+    // scanf("%d %d %d", &a, &b, &c);
+    a = 1234;
+    b = 12;
+    c = 123;
     printf("A = %d, B = %d, C = %d\n", a, b, c);
     printf("A = %10d, B = %10d, C = %10d\n", a, b, c);
     printf("A = %010d, B = %010d, C = %010d\n", a, b, c);

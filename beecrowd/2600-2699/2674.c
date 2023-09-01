@@ -1,50 +1,56 @@
-// #include <stdio.h>
-// int isPrime(int number)
-// {
-//     int i;
-//     for (i = 2; i < number; i++)
-//     {
-//         if (number % i == 0)
-//         {
+#include <stdio.h>
+int isPrime(int number)
+{
+    if (number < 2)
+    {
+        return 0;
+    }
 
-//             return 0;
-//         }
-//     }
-//     return 1;
-// }
+    for (int i = 2; i < number; i++)
+    {
+        if (number % i == 0)
+        {
 
-// int main()
-// {
-//     int number, isSuperPrime = 1;
-//     while (scanf("%d", &number) != EOF)
-//     {
-//         if (isPrime(number))
-//         {
-//             while (number > 0)
-//             {
-//                 int mod = number % 10;
-//                 if (!isPrime(mod))
-//                 {
-//                     isSuperPrime = 0;
-//                     break;
-//                 }
-//                 number = number / 10;
-//             }
+            return 0;
+        }
+    }
+    return 1;
+}
 
-//             if (isSuperPrime)
-//             {
-//                 printf("Super\n");
-//             }
-//             else
-//             {
-//                 printf("Primo\n");
-//             }
-//         }
-//         else
-//         {
-//             printf("Nada\n");
-//         }
-//     }
-// }
+int isSuperPrime(int number)
+{
+    while (number > 0)
+    {
+        int digit = number % 10;
+        if (!isPrime(digit))
+        {
+            return 0;
+        }
+        number = number / 10;
+    }
+    return 1;
+}
 
-// 5% error
+int main()
+{
+    int number;
+
+    while (scanf("%d", &number) != EOF)
+    {
+        if (isPrime(number))
+        {
+            if (isSuperPrime(number))
+            {
+                printf("Super\n");
+            }
+            else
+            {
+                printf("Primo\n");
+            }
+        }
+        else
+        {
+            printf("Nada\n");
+        }
+    }
+}

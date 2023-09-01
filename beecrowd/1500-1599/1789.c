@@ -1,28 +1,20 @@
 #include <stdio.h>
 int main()
 {
-    int numberOfSlug, speed, i, sum = 0, shouldBreak = 0;
+    int numberOfSlug, speed, i, sum;
     double average;
     while (scanf("%d", &numberOfSlug) != EOF)
     {
+        sum = 0;
         for (i = 0; i < numberOfSlug; i++)
         {
-            if (scanf("%d", &speed) != EOF)
-            {
-                break;
-                shouldBreak = 1;
-            }
-
+            scanf("%d", &speed);
             sum += speed;
-        }
-        if (shouldBreak == 1)
-        {
-            break;
         }
 
         average = sum / numberOfSlug;
 
-        if (average > 20)
+        if (average >= 20)
         {
             printf("3\n");
         }
