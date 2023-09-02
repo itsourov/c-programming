@@ -1,7 +1,30 @@
 #include <stdio.h>
+
+int calculatePower(int number, int power)
+{
+
+    int result = 1;
+    for (int i = 0; i < power; i++)
+    {
+        result *= number;
+    }
+    return result;
+}
+int getNumberOfDigit(int number)
+{
+    int count = 0;
+    while (number > 0)
+    {
+
+        number = number / 10;
+        count++;
+    }
+    return count;
+}
 int main()
 {
-    int input;
+
+    int input, digitInBiggestNumber;
     while (1)
     {
         scanf("%d", &input);
@@ -15,23 +38,11 @@ int main()
         {
             for (int j = 0; j < input; j++)
             {
-                arr[i][j] = 1;
+                arr[i][j] = calculatePower(2, i + j);
             }
         }
-        for (int index = 0; index < input - 1; index++)
-        {
-            for (int i = 0; i < input; i++)
-            {
-                for (int j = 0; j < input; j++)
-                {
 
-                    if ((i > j + index || j > i + index))
-                    {
-                        arr[i][j] += 1;
-                    }
-                }
-            }
-        }
+        digitInBiggestNumber = getNumberOfDigit(arr[input - 1][input - 1]);
 
         for (int i = 0; i < input; i++)
         {
@@ -40,11 +51,11 @@ int main()
 
                 if (j == input - 1)
                 {
-                    printf("%3d", arr[i][j]);
+                    printf("%*d", digitInBiggestNumber, arr[i][j]);
                 }
                 else
                 {
-                    printf("%3d ", arr[i][j]);
+                    printf("%*d ", digitInBiggestNumber, arr[i][j]);
                 }
             }
             printf("\n");

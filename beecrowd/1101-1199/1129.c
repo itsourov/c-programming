@@ -20,7 +20,7 @@ int main()
             int position, count = 0;
             for (int i = 0; i < 5; i++)
             {
-                if (numbers[i] < 127)
+                if (numbers[i] <= 127)
                 {
                     position = i;
                     count++;

@@ -54,7 +54,7 @@ int main(void)
         }
     }
 
-    if (A >= (B + C))
+    if (A < (B + C))
     {
         printf("NAO FORMA TRIANGULO\n");
     }

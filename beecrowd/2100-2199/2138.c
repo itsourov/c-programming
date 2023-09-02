@@ -19,13 +19,13 @@ int main()
 
         for (int i = 0; i < 10; i++)
         {
-
+            printf("%d-", digitPosition[i]);
             if (i == 0 || digitPosition[i] > biggestNumber)
             {
                 biggestNumber = digitPosition[i];
-                position = i;
+                position = i + 1;
             }
         }
-        printf("%d\n", position);
+        printf("==%d\n", position);
     }
 }

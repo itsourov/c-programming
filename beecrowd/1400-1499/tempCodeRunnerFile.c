@@ -2,23 +2,24 @@
 int main()
 {
     int a, b, c;
-    int sobceyeBoroNumber;
-
-    scanf("%d %d %d", &a, &b, &c);
-
-    if (a > b && a > c)
+    while (scanf("%d %d %d", &a, &b, &c) != EOF)
     {
-        sobceyeBoroNumber = a;
-    }
-    else if (b > a && b > c)
-    {
-        sobceyeBoroNumber = b;
-    }
-    else
-    {
-        sobceyeBoroNumber = c;
-    }
-    printf("%d eh o maior\n", sobceyeBoroNumber);
 
-    return 0;
+        if ((a = 0 && b == 0 && c == 0) || (a = 1 && b == 1 && c == 1))
+        {
+            printf("*\n");
+        }
+        if ((a = 0 && b == 1 && c == 1) || (a = 1 && b == 0 && c == 0))
+        {
+            printf("A\n");
+        }
+        if ((a = 1 && b == 0 && c == 1) || (a = 0 && b == 1 && c == 0))
+        {
+            printf("B\n");
+        }
+        if ((a = 1 && b == 1 && c == 0) || (a = 0 && b == 0 && c == 1))
+        {
+            printf("C\n");
+        }
+    }
 }

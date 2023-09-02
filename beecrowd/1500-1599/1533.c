@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-    int n, biggestNumber, secondBiggestNumber, position, sus;
+    int n, biggestNumber, secondBiggestNumber, positionBiggest, position, sus;
     while (1)
     {
         scanf("%d", &n);
@@ -13,13 +13,19 @@ int main()
         biggestNumber = 0;
         secondBiggestNumber = 0;
         position = 0;
-        for (int i = 0; i < n; i++)
+        positionBiggest = 0;
+
+        for (int i = 1; i <= n; i++)
         {
             scanf("%d", &sus);
 
             if (sus > biggestNumber)
             {
+                secondBiggestNumber = biggestNumber;
+                position = positionBiggest;
+
                 biggestNumber = sus;
+                positionBiggest = i;
             }
             else if (sus > secondBiggestNumber)
             {
@@ -28,6 +34,6 @@ int main()
             }
         }
 
-        printf("%d\n", position + 1);
+        printf("%d\n", position);
     }
 }
