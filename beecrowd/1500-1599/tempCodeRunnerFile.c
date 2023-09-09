@@ -1,33 +1,30 @@
 #include <stdio.h>
 int main()
 {
-    int n, biggestNumber, secondBiggestNumber, position, sus;
+    int holeDistance, speed, distance, isPossible;
     while (1)
     {
-        scanf("%d", &n);
-        if (n == 0)
+        scanf("%d %d", &holeDistance, &speed);
+        if (holeDistance == 0 && speed == 0)
         {
             break;
         }
+        distance = 0;
+        isPossible = 0;
 
-        biggestNumber = 0;
-        secondBiggestNumber = 0;
-        position = 0;
-        for (int i = 0; i < n; i++)
+        while (speed > 0)
         {
-            scanf("%d", &sus);
-
-            if (sus > biggestNumber)
+            for (int i = 0; i < speed; i++)
             {
-                biggestNumber = sus;
+                distance += speed;
+                // printf("%d-", distance);
+                if (distance == holeDistance)
+                {
+                    isPossible = 1;
+                }
             }
-            else if (sus > secondBiggestNumber)
-            {
-                secondBiggestNumber = sus;
-                position = i;
-            }
+            speed--;
         }
-
-        printf("%d\n", position + 1);
+        printf("%s\n", isPossible ? "possivel" : "impossivel");
     }
 }

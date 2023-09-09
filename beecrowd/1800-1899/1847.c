@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 void happy()
 {
     printf(":)\n");
@@ -28,9 +29,9 @@ int main()
     }
     else if (b > a && c > b && c - b >= b - a)
     {
-        printf(":)\n");
+        happy();
     }
-    else if (b < a && c < b && abs(c - b) < abs(b - a))
+    else if (b < a && c < b && (c - b) < abs(b - a))
     {
         happy();
     }

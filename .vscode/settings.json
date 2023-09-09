@@ -5,6 +5,8 @@
         "unordered_map": "c",
         "chrono": "c",
         "string.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "sstream": "c",
+        "A.C": "cpp"
     }
 }

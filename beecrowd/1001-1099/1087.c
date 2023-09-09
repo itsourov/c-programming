@@ -16,7 +16,7 @@ int main()
         {
             printf("0\n");
         }
-        else if (x1 == x2 || y1 == y2 || (x1 + y2 == x2 + y1))
+        else if (x1 == x2 || y1 == y2 || (x1 + y1 == x2 + y2))
         {
             printf("1\n");
         }
