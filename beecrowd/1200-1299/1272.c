@@ -3,23 +3,28 @@
 
 int main()
 {
-    int testCase, index;
-    char message[50], secreatMessage[50];
+    int testCase;
+    char message[51];
     scanf("%d", &testCase);
 
-    index = 0;
-    for (int i = 0; i < testCase; i++)
+    while (testCase--)
     {
-        fgets(message, 50, stdin);
-        for (int j = 0; message[j] < 50; j++)
+        getchar();
+
+        fgets(message, 1100, stdin);
+
+        if (message[0] >= 'a' && message[0] <= 'z')
         {
-            if (message[j] == '.')
+            printf("%c", message[0]);
+        }
+        for (int i = 1; i < strlen(message); i++)
+        {
+            if ((message[i] >= 'a' && message[i] <= 'z') && (message[i - 1] < 'a' || message[i - 1] > 'z'))
             {
-                secreatMessage[index] = message[j + 1];
-                index++;
+                printf("%c", message[i]);
             }
         }
 
-        printf("%s\n", secreatMessage);
+        printf("\n");
     }
 }

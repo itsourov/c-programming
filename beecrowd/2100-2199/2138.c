@@ -1,31 +1,27 @@
 #include <stdio.h>
+#include <string.h>
 int main()
 {
-    long long int n;
-    int biggestNumber, position;
-
-    while (scanf("%lldd", &n) != EOF)
+    char number[1100];
+    int digitCount, mfd, mfdCount;
+    while (scanf("%s", number) != EOF)
     {
-        int digitPosition[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-
-        while (n > 0)
-        {
-            int digit = n % 10;
-
-            digitPosition[digit] = digitPosition[digit] + 1;
-
-            n = n / 10;
-        }
-
         for (int i = 0; i < 10; i++)
         {
-            printf("%d-", digitPosition[i]);
-            if (i == 0 || digitPosition[i] > biggestNumber)
+            digitCount = 0;
+            for (int index = 0; index < strlen(number); index++)
             {
-                biggestNumber = digitPosition[i];
-                position = i + 1;
+                if (number[index] - 48 == i)
+                {
+                    digitCount++;
+                }
+            }
+            if (i == 0 || digitCount >= mfdCount)
+            {
+                mfd = i;
+                mfdCount = digitCount;
             }
         }
-        printf("==%d\n", position);
+        printf("%d\n", mfd);
     }
 }

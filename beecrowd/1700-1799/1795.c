@@ -1,14 +1,9 @@
-// #include <stdio.h>
-// int getOneToNSum(int n)
-// {
-// }
-// int main()
-// {
-//     int n;
-//     scanf("%d", &n);
+#include <stdio.h>
 
-//     for (int i = 0; i < n; i++)
-//     {
-//         sum += 2;
-//     }
-// }
+int main()
+{
+    int n;
+    scanf("%d", &n);
+
+    printf("%d\n", 1 + (n)*2);
+}

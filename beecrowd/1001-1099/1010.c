@@ -15,7 +15,9 @@ int main(void)
 
     scanf("%d %d %lf", &uselessVariable2, &secondInput2, &price2);
 
-    printf("VALOR A PAGAR: R$ %.2lf\n", (secondInput * price) + (secondInput2 * price2));
+    int result = (secondInput * price) + (secondInput2 * price2);
+
+    printf("VALOR A PAGAR: R$ %.2lf\n", result);
 
     return 0;
 }

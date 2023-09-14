@@ -1,32 +1,29 @@
 #include <stdio.h>
-int main(void)
+int main()
 {
+    int N, slot1, slot2, d1, d2, h1, h2, m1, m2, s1, s2, l, i, j, k;
+    scanf("%*s %d ", &d1);
+    scanf("%d %*s ", &h1);
+    scanf("%d %*s", &m1);
+    scanf("%d ", &s1);
+    scanf("%*s %d ", &d2);
+    scanf("%d %*s", &h2);
+    scanf("%d %*s", &m2);
+    scanf("%d", &s2);
+    slot1 = s1 + (m1 * 60) + (h1 * (60 * 60)) + (d1 * (24 * 60 * 60));
+    slot2 = s2 + (m2 * 60) + (h2 * (60 * 60)) + (d2 * (24 * 60 * 60));
+    N = slot2 - slot1;
+    l = N / 86400;
+    N = N % 86400;
+    i = N / 3600;
+    N = N % 3600;
+    j = N / 60;
+    k = N % 60;
 
-    int startingDay;
-    scanf("Dia %d", &startingDay);
+    printf("%d dia(s)\n", l);
+    printf("%d hora(s)\n", i);
+    printf("%d minuto(s)\n", j);
+    printf("%d segundo(s)\n", k);
 
-    int startingHour, startingMin, startingSec;
-    scanf("%d : %d : %d", &startingHour, &startingMin, &startingSec);
-
-    int endingDay;
-    scanf("Dia %d", &endingDay);
-
-    int endingHour, endingMin, endingSec;
-    scanf("%d : %d : %d", &endingHour, &endingMin, &endingSec);
-
-    long long int endingTimeInSec = endingSec + endingMin * 60 + endingHour * 60 * 60 + endingDay & 60 * 60 * 24;
-    long long int startingTimeInSec = startingSec + startingMin * 60 + startingHour * 60 * 60 + startingDay & 60 * 60 * 24;
-
-    long long int diffInSeconds = endingTimeInSec - startingTimeInSec;
-
-    printf("%d dia(s)\n", diffInSeconds / (60 * 60 * 24));
-    diffInSeconds -= diffInSeconds / (60 * 60 * 24);
-
-    printf("%d hora(s)\n", diffInSeconds / (60 * 60));
-    diffInSeconds -= diffInSeconds / (60 * 60);
-
-    printf("%d minuto(s)\n", diffInSeconds / (60));
-    diffInSeconds -= diffInSeconds / (60);
-
-    printf("%d segundo(s)\n", diffInSeconds);
+    return 0;
 }

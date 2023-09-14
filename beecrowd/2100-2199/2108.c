@@ -1,58 +1,51 @@
 #include <stdio.h>
 #include <string.h>
 
-int getStringLength(char sentence[100])
-{
-    int length = 0;
-    for (int i = 0; i < 100; i++)
-    {
-        if (sentence[i] == '\n')
-        {
-            break;
-        }
-
-        length++;
-    }
-    return length;
-}
-
 int main()
 {
-    char sentence[100], biggestString[100], biggestStringLength = 0;
+    char str[101];
+    char max[101] = "";
+
     while (1)
     {
-        fgets(sentence, 100, stdin);
-        if (sentence[0] == '0')
+        fgets(str, sizeof(str), stdin);
+        str[strlen(str) - 1] = '\0'; // Remove the newlinxe character
+
+        if (strcmp(str, "0") == 0)
         {
-            printf("\nThe biggest word: %s\n", biggestString);
+            printf("\nThe biggest word: %s\n", max);
             break;
         }
-
-        if (getStringLength(sentence) > biggestStringLength)
+        else
         {
-            strcpy(biggestString, sentence);
-            biggestStringLength = getStringLength(sentence);
-        }
-
-        int wordCount = 0;
-        for (int i = 0; i < 100; i++)
-        {
-            if (sentence[i] == '\n')
+            char temp[101] = "";
+            int len = strlen(str);
+            for (int i = 0; i < len; i++)
             {
-                printf("%d\n", wordCount);
-                break;
+                if (str[i] != ' ')
+                {
+                    temp[strlen(temp)] = str[i];
+                }
+                else
+                {
+                    if (strlen(temp) >= strlen(max))
+                    {
+                        strcpy(max, temp);
+                    }
+                    printf("%d-", (int)strlen(temp));
+                    memset(temp, 0, sizeof(temp));
+                }
             }
-
-            if (sentence[i] == ' ')
+            if (strlen(temp) > 0)
             {
-                printf("%d", wordCount);
-                printf("-");
-                wordCount = 0;
-            }
-            else
-            {
-                wordCount++;
+                printf("%d\n", (int)strlen(temp));
+                if (strlen(temp) >= strlen(max))
+                {
+                    strcpy(max, temp);
+                }
             }
         }
     }
+
+    return 0;
 }

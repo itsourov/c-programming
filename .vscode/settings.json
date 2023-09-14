@@ -7,6 +7,7 @@
         "string.h": "c",
         "stdio.h": "c",
         "sstream": "c",
-        "A.C": "cpp"
+        "A.C": "cpp",
+        "2029.C": "cpp"
     }
 }
