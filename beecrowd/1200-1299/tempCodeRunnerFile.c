@@ -4,19 +4,23 @@
 int main()
 {
     int testCase;
-    char message[1100];
+    char message[51], *word;
     scanf("%d", &testCase);
 
     while (testCase--)
     {
+        getchar();
+        fgets(message, 51, stdin);
+        word = strtok(message, " ");
 
-        fgets(message, 1100, stdin);
-        for (int i = 0; i < strlen(message); i++)
+        while (word != NULL)
         {
-            if (message[i] != ' ' && (message[i - 1] == ' ' || i == 0))
-            {
-                printf("%c", message[i]);
-            }
+
+            printf("%c", word[0]);
+
+            word = strtok(NULL, " ");
         }
+
+        printf("\n");
     }
 }

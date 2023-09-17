@@ -3,38 +3,34 @@
 
 int main()
 {
-    int n, l, c;
-    char word[71]; // Assuming a maximum word size of 70 characters
+    int numberOfWordInShortStory, maxLinePerPage, maxCharPerLine;
 
-    while (scanf("%d %d %d", &n, &l, &c) != EOF)
+    char story[1010];
+    int stringLength, lineCount, tempIndex;
+
+    while (scanf("%d %d %d", &numberOfWordInShortStory, &maxLinePerPage, &maxCharPerLine) != EOF)
     {
-        int pages = 1;
-        int lines = 1;
-        int characters = 0;
+        getchar();
+        fgets(story, 1010, stdin);
+        stringLength = strlen(story);
 
-        for (int i = 0; i < n; ++i)
+        lineCount = 1;
+        tempIndex = 0;
+
+        for (int i = 0; i < stringLength; i++)
         {
-            scanf("%s", word);
-            int word_length = strlen(word);
-
-            if ((characters + word_length + 1) <= c)
+            tempIndex++;
+            if (story[i] == ' ' && tempIndex > maxCharPerLine)
             {
-                characters += word_length + 1;
-            }
-            else
-            {
-                ++lines;
-                if (lines > l)
-                {
-                    ++pages;
-                    lines = 1;
-                }
-                characters = word_length;
+                lineCount++;
+                tempIndex = tempIndex - maxCharPerLine;
             }
         }
+        if (tempIndex > 0)
+        {
+            lineCount++;
+        }
 
-        printf("%d\n", pages);
+        printf("%f\n", (float)lineCount / maxLinePerPage);
     }
-
-    return 0;
 }

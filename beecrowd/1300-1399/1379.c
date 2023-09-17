@@ -10,5 +10,10 @@ int main()
         {
             break;
         }
+        mean = (a * 3) - a - b;
+
+        printf("%d\n", mean);
     }
 }
+
+// x+1+2=1*2

@@ -8,6 +8,11 @@
         "stdio.h": "c",
         "sstream": "c",
         "A.C": "cpp",
-        "2029.C": "cpp"
+        "2029.C": "cpp",
+        "cmath": "c",
+        "complex": "c",
+        "cstdlib": "c",
+        "__locale": "c",
+        "ios": "c"
     }
 }

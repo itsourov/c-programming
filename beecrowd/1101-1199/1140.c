@@ -3,16 +3,39 @@
 
 int main()
 {
-    char sentence[1100];
-    fgets(sentence, 1100, stdin);
-    printf("%s\n", sentence);
+    char sentence[1100], firstLetter;
+    int strlength, isOk;
+    while (1)
+    {
+        // getchar();
+        fgets(sentence, 1010, stdin);
+        if (sentence[0] == '*')
+        {
+            break;
+        }
 
-    if (strcmp(sentence, "Flowers Flourish from France"))
-    {
-        printf("matched\n");
-    }
-    else
-    {
-        printf("not matched\n");
+        strlength = strlen(sentence);
+
+        isOk = 1;
+        for (int i = 0; i < strlength; i++)
+        {
+            if (sentence[i] == ' ')
+            {
+                if (sentence[i + 1] != sentence[0] && sentence[i + 1] - 32 != sentence[0] && sentence[i + 1] + 32 != sentence[0])
+                {
+                    isOk = 0;
+                    break;
+                }
+            }
+        }
+
+        if (isOk)
+        {
+            printf("Y\n");
+        }
+        else
+        {
+            printf("N\n");
+        }
     }
 }

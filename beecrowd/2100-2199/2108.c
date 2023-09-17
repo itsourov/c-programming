@@ -3,49 +3,51 @@
 
 int main()
 {
-    char str[101];
-    char max[101] = "";
+    char string[110];
+    char *word;
+    char *separator = " ";
+    int wordLengh, longestWordLenght = 0, isFirst;
+    char longestWord[110];
 
     while (1)
     {
-        fgets(str, sizeof(str), stdin);
-        str[strlen(str) - 1] = '\0'; // Remove the newlinxe character
 
-        if (strcmp(str, "0") == 0)
+        fgets(string, 105, stdin);
+
+        if (string[0] == '0' || string[1] == '0')
         {
-            printf("\nThe biggest word: %s\n", max);
+            printf("\n");
             break;
         }
-        else
-        {
-            char temp[101] = "";
-            int len = strlen(str);
-            for (int i = 0; i < len; i++)
-            {
-                if (str[i] != ' ')
-                {
-                    temp[strlen(temp)] = str[i];
-                }
-                else
-                {
-                    if (strlen(temp) >= strlen(max))
-                    {
-                        strcpy(max, temp);
-                    }
-                    printf("%d-", (int)strlen(temp));
-                    memset(temp, 0, sizeof(temp));
-                }
-            }
-            if (strlen(temp) > 0)
-            {
-                printf("%d\n", (int)strlen(temp));
-                if (strlen(temp) >= strlen(max))
-                {
-                    strcpy(max, temp);
-                }
-            }
-        }
-    }
+        string[strlen(string) - 1] = '\0';
 
-    return 0;
+        word = strtok(string, separator);
+        isFirst = 1;
+        while (word != NULL)
+        {
+            wordLengh = strlen(word);
+
+            if (isFirst)
+            {
+                // printf("word: %s.\n", word);
+                printf("%d", wordLengh);
+                isFirst = 0;
+            }
+            else
+            {
+                // printf("word: %s.\n", word);
+                printf("-%d", wordLengh);
+            }
+
+            if (wordLengh >= longestWordLenght)
+            {
+                longestWordLenght = wordLengh;
+                strcpy(longestWord, word);
+            }
+
+            word = strtok(NULL, separator);
+        }
+        printf("\n");
+    }
+    printf("The biggest word: %s\n", longestWord);
 }

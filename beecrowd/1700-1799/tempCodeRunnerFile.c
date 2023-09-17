@@ -2,32 +2,13 @@
 
 int main()
 {
-    int x, y;
-    double lapCountOfX, lapCountOfY;
-    while (scanf("%d %d", &x, &y) != EOF)
+    int n;
+    long long int sum = 1;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
     {
-
-        lapCountOfX = 1.0;
-        lapCountOfY = 1.0;
-
-        while (1)
-        {
-
-            if (lapCountOfX > lapCountOfY + 1)
-            {
-
-                break;
-            }
-            lapCountOfX += (1.0 / x);
-            lapCountOfY += (1.0 / y);
-        }
-        if ((int)lapCountOfY == 30 || (int)lapCountOfY == 1)
-        {
-            printf("%lf %lf %d %d\n", lapCountOfX, lapCountOfY,x,y);
-        }
-        else
-        {
-            printf("%.lf\n", lapCountOfY);
-        }
+        sum *= 3;
     }
+    printf("%lld\n", sum);
 }
+// 81,27,9,3
