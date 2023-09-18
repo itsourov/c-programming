@@ -1,18 +1,13 @@
 #include <stdio.h>
 #include <math.h>
-
 int main()
 {
-    long long int s;
-    int n, i;
-
-    scanf("%d", &n);
-
-    for (i = 0; i < n; ++i)
+    long long int n, trops, row;
+    scanf("%lld", &n);
+    while (n--)
     {
-        scanf("%lld", &s);
-        printf("%lld\n", (long long int)(-1 + sqrt(1 + 8 * s)) / 2);
+        scanf("%lld", &trops);
+        row = (sqrt(1 + 8 * trops) - 1) / 2;
+        printf("%lld\n", row);
     }
-
-    return 0;
 }

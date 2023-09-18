@@ -4,27 +4,26 @@
 int main()
 {
     int testCase;
-    char message[52], *word;
+
     scanf("%d", &testCase);
 
     getchar();
     while (testCase--)
     {
-
-        fgets(message, 52, stdin);
-
-        word = strtok(message, " ");
-
-        while (word != NULL)
+        // printf("Flag\n");
+        char message[100];
+        fgets(message, 100, stdin);
+        for (int i = 0; message[i] != '\0'; i++)
         {
-            if (word[0] >= 'a' && word[0] <= 'z')
+            if (i == 0 && message[i] != ' ')
             {
-                printf("%c", word[0]);
+                printf("%c", message[i]);
             }
-
-            word = strtok(NULL, " ");
+            else if (i > 0 && message[i] >= 'a' && message[i] <= 'z' && message[i - 1] == ' ')
+            {
+                printf("%c", message[i]);
+            }
         }
-
         printf("\n");
     }
 }

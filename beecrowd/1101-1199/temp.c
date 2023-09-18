@@ -2,9 +2,8 @@
 
 int main()
 {
-
-    char input;
-    scanf("%c", &input);
-
-    printf("%d\n", input - 'a' + 1);
+    for (int i = 1; i < 100; i++)
+    {
+        printf("%d = %d\n", i, i * (i + 1) / 2);
+    }
 }
