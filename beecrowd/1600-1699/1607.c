@@ -1,25 +1,28 @@
-// #include <stdio.h>
-// #include <string.h>
-// int getStringToNumber(char string[1000])
-// {
+#include <stdio.h>
+#include <string.h>
 
-//     int number = 0;
-//     for (int i = 0; string[i] != '\n'; i++)
-//     {
-//         number += string[i];
-//     }
-//     return number;
-// }
+int main()
+{
+    int testCase;
+    char string1[10010], string2[10010];
+    scanf("%d", &testCase);
 
-// int main()
-// {
-//     int testCase;
-//     char string1[1000], string2[1000];
-//     scanf("%d", &testCase);
-//     for (int i = 0; i < testCase; i++)
-//     {
-//         scanf("%c", string1);
-//         scanf("%c", string2);
-//         printf("%d\n", getStringToNumber(string2) - getStringToNumber(string1));
-//     }
-// }
+    while (testCase--)
+    {
+        scanf("%s %s", string1, string2);
+
+        int count = 0;
+
+        for (int i = 0; i < strlen(string1); i++)
+        {
+            int diff = string2[i] - string1[i];
+            if (diff < 0)
+            {
+                diff = diff + 26;
+            }
+
+            count += diff;
+        }
+        printf("%d\n", count);
+    }
+}

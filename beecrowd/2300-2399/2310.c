@@ -29,11 +29,11 @@ int main()
     q = (dif1 * 100.00) / sum1;
     r = (dif2 * 100.00) / sum2;
 
-    printf("Pontos de Saque: %.2f%%", p);
+    printf("Pontos de Saque: %.2f %%", p);
     printf(".\n");
-    printf("Pontos de Bloqueio: %.2f%%", q);
+    printf("Pontos de Bloqueio: %.2f %%", q);
     printf(".\n");
-    printf("Pontos de Ataque: %.2f%%", r);
+    printf("Pontos de Ataque: %.2f %%", r);
     printf(".\n");
 
     return 0;

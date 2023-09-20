@@ -29,9 +29,13 @@ int main()
         }
         isPossible = 0;
 
-        if (isPossibleFun(speed, holeDistance))
+        for (int i = speed; i > 0; i--)
         {
-            isPossible = 1;
+            if (isPossibleFun(i, holeDistance))
+            {
+                isPossible = 1;
+                break;
+            }
         }
 
         printf("%s\n", isPossible ? "possivel" : "impossivel");

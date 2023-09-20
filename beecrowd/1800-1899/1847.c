@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 void happy()
 {
-    printf(":)\n");
+    printf(":)");
 }
 void sad()
 {
-    printf(":(\n");
+    printf(":(");
 }
 
 int main()
@@ -14,37 +14,42 @@ int main()
     int a, b, c;
     scanf("%d %d %d", &a, &b, &c);
 
-    if (a > b && b < c)
+    if (a > b && b <= c )
     {
         happy();
     }
-    else if (a < b && b > c)
+    else if (a < b &&b >=c)
     {
         sad();
     }
-
-    else if (b > a && c > b && c - b < b - a)
+    else if (a < b && b < c && (c - b) < (b - a))
     {
         sad();
     }
-    else if (b > a && c > b && c - b >= b - a)
+    else if (a < b && b < c && (c - b) >= (b - a))
     {
         happy();
     }
-    else if (b < a && c < b && (c - b) < abs(b - a))
+    else if (a > b && b > c && (b - c) < (a - b))
     {
         happy();
     }
-    else if (b < a && c < b && abs(c - b) <= (b - a))
+    else if (a > b && b > c && (b - c) >= (a - b))
     {
         sad();
     }
-    else if (b == a && c - b > b - a)
+    else if (a == b && b < c)
     {
         happy();
+    }
+    else if (a == b && b > c)
+    {
+        sad();
     }
     else
     {
         sad();
+        // printf("%d %d %d", a, b, c);
     }
+    printf("\n");
 }
