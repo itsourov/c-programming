@@ -1,48 +1,33 @@
 #include <stdio.h>
-#include <string.h>
 
 int main()
 {
-    char sentence[1100], firstLetter;
-    int strlength, isOk;
-    while (1)
+    int n;
+    scanf("%d", &n);
+    int numbers[n];
+    for (int i = 0; i < n; i++)
     {
-        getchar();
-        fgets(sentence, 1010, stdin);
-        if (sentence[0] == '*')
-        {
-            break;
-        }
+        scanf("%d", &numbers[i]);
+    }
+    int foundCount = 0;
+    for (int i = 0; i < n; i++)
+    {
 
-        strlength = strlen(sentence);
-        firstLetter = '\0';
-        isOk = 1;
-        for (int i = 0; i < strlength; i++)
+        for (int j = 0; j < n; j++)
         {
-            if (i == 0 || (sentence[i - 1] == ' ' && sentence[i] != ' '))
+            if (i == numbers[j])
             {
-                if (firstLetter == '\0')
-                {
-                    firstLetter = sentence[i];
-                }
-                else
-                {
-                    if (sentence[i] != firstLetter)
-                    {
-                        isOk = 0;
-                        break;
-                    }
-                }
+                foundCount++;
+                break;
             }
         }
-
-        if (isOk)
-        {
-            printf("Y\n");
-        }
-        else
-        {
-            printf("N\n");
-        }
+    }
+    if (foundCount == n)
+    {
+        printf("Yes\n");
+    }
+    else
+    {
+        printf("No\n");
     }
 }

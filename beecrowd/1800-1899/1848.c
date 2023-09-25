@@ -2,53 +2,38 @@
 #include <string.h>
 int main()
 {
-    int a, b, c, d, e, f, i, sum = 0;
-    char ara[10];
-    for (i = 1; i <= 3; i++)
+
+    int count;
+
+    for (int index = 0; index < 3; index++)
     {
-        sum = 0;
+        char string[100];
+        int count = 0;
         while (1)
         {
-            gets(ara);
-            if (ara[0] == 'c')
-                break;
 
-            if (ara[0] == '-')
+            fgets(string, 100, stdin);
+            if (string[0] == 'c')
             {
-                if (ara[1] == '-')
-                {
-                    if (ara[2] == '-')
-                        sum += 0;
-                    else
-                        sum += 1;
-                }
-                else
-                {
-                    if (ara[2] == '-')
-                        sum += 2;
-                    else
-                        sum += 3;
-                }
+                break;
             }
-            else if (ara[0] == '*')
+            int bin = 0;
+            if (string[0] == '*')
             {
-                if (ara[1] == '-')
-                {
-                    if (ara[2] == '-')
-                        sum += 4;
-                    else
-                        sum += 5;
-                }
-                else
-                {
-                    if (ara[2] == '-')
-                        sum += 6;
-                    else
-                        sum += 7;
-                }
+                bin += 4;
             }
+            if (string[1] == '*')
+            {
+                bin += 2;
+            }
+            if (string[2] == '*')
+            {
+                bin += 1;
+            }
+            count += bin;
         }
-        printf("%d\n", sum);
+        printf("%d\n", count);
     }
+
     return 0;
 }

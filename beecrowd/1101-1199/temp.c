@@ -1,13 +1,20 @@
 #include <stdio.h>
 int main()
 {
-    int a[5], i;
-    for (i = 0; i < 5; ++i)
+    int numberOfStudent, passmark;
+    scanf("%d %d", &numberOfStudent, &passmark);
+    int count = 0;
+    int i;
+    int input;
+    for (i = 0; i < numberOfStudent; i++)
     {
-        scanf("%d", &a[i]);
+        scanf("%d", &input);
+        if (input < passmark)
+        {
+            count++;
+        }
     }
-    for (i = 0; i < 5; ++i)
-    {
-        printf("%d\n", a[i]);
-    }
+    printf("%d\n", count);
+
+    return 0;
 }

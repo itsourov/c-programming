@@ -13,6 +13,7 @@
         "complex": "c",
         "cstdlib": "c",
         "__locale": "c",
-        "ios": "c"
+        "ios": "c",
+        "string": "cpp"
     }
 }
