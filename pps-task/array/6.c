@@ -32,4 +32,4 @@ int main()
     printf("min  = %d\n", min);
 }
 
-// 6. Write a program in C to find the maximum and minimum elements in an array.
+// Write a program in C to find the maximum and minimum elements in an array.

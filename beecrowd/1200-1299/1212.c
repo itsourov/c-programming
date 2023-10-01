@@ -31,6 +31,7 @@ int main()
     while (1)
     {
         scanf("%ld %ld", &x, &y);
+        
         if (x == 0 && y == 0)
             break;
         carry = NumCarryAdd(x, y);
