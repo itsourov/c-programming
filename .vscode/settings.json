@@ -79,6 +79,7 @@
         "valarray": "cpp",
         "variant": "cpp",
         "vector": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "408-A.C": "cpp"
     }
 }

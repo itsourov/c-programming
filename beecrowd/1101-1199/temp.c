@@ -1,52 +1,33 @@
 #include <stdio.h>
-int main(void)
+int main()
 {
-    double input1, input2;
-    int yesNo;
 
-    while (1)
+    int n, savedAll = 1, i;
+    scanf("%d", &n);
+    int arr[n];
+    for (int i = 0; i < n; i++)
     {
-
-        while (1)
+        scanf("%d", &arr[i]);
+        if (arr[i] <= 20)
         {
-            scanf("%lf", &input1);
-            if (input1 >= 0 && input1 <= 10)
+            savedAll = 0;
+        }
+    }
+
+    if (savedAll == 1)
+    {
+        printf("Saved All\n");
+    }
+    else
+    {
+        printf("Only few are saved and the following are dead:\n");
+        for (int i = 0; i < n; i++)
+        {
+            if (arr[i] <= 20)
             {
-                break;
-            }
-            else
-            {
-                printf("nota invalida\n");
+                printf("%d ", arr[i]);
             }
         }
-
-        while (1)
-        {
-            scanf("%lf", &input2);
-            if (input2 >= 0 && input2 <= 10)
-            {
-                break;
-            }
-            else
-            {
-                printf("nota invalida\n");
-            }
-        }
-
-        printf("media = %.2lf\n", (input1 + input2) / 2);
-
-        while (1)
-        {
-            printf("novo calculo (1-sim 2-nao)\n");
-            scanf("%d", &yesNo);
-            if (yesNo == 1 || yesNo == 2)
-            {
-                break;
-            }
-        }
-        if (yesNo == 2)
-        {
-            break;
-        }
+        printf("\n");
     }
 }
