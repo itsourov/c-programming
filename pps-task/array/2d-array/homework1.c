@@ -1,3 +1,4 @@
+// see and take idea. do it yourself
 #include <stdio.h>
 
 int main()
