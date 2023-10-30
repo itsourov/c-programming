@@ -80,6 +80,14 @@
         "variant": "cpp",
         "vector": "cpp",
         "algorithm": "cpp",
-        "408-A.C": "cpp"
+        "408-A.C": "cpp",
+        "functional": "cpp",
+        "memory_resource": "cpp",
+        "filesystem": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "random": "cpp",
+        "utility": "cpp",
+        "__memory": "cpp"
     }
 }

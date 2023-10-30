@@ -1,33 +1,20 @@
 #include <stdio.h>
-int main()
+
+int ans = 1; // globle veriable
+
+void calculate()
 {
 
-    int n, savedAll = 1, i;
-    scanf("%d", &n);
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &arr[i]);
-        if (arr[i] <= 20)
-        {
-            savedAll = 0;
-        }
-    }
+    ans += 100;
+    // add 100 to ans
+}
 
-    if (savedAll == 1)
-    {
-        printf("Saved All\n");
-    }
-    else
-    {
-        printf("Only few are saved and the following are dead:\n");
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i] <= 20)
-            {
-                printf("%d ", arr[i]);
-            }
-        }
-        printf("\n");
-    }
+int main()
+{
+    calculate();
+    calculate();
+
+    // duibar function call korlam tahole duibar  100 jog hobe;
+
+    printf("%d\n", ans);
 }
