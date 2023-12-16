@@ -88,6 +88,14 @@
         "memory": "cpp",
         "random": "cpp",
         "utility": "cpp",
-        "__memory": "cpp"
+        "__memory": "cpp",
+        "any": "cpp",
+        "barrier": "cpp",
+        "codecvt": "cpp",
+        "latch": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp",
+        "shared_mutex": "cpp",
+        "span": "cpp"
     }
 }

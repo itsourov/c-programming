@@ -1,20 +1,20 @@
 #include <stdio.h>
-
-int ans = 1; // globle veriable
-
-void calculate()
+int sum(int n)
 {
-
-    ans += 100;
-    // add 100 to ans
+    int x;
+    if (n / 10 > 0)
+    {
+        return (n % 10) + sum(n / 10);
+    }
+    else
+    {
+        return n;
+    }
 }
-
 int main()
 {
-    calculate();
-    calculate();
+    int n;
+    scanf("%d", &n);
 
-    // duibar function call korlam tahole duibar  100 jog hobe;
-
-    printf("%d\n", ans);
+    printf("%d\n", sum(n));
 }

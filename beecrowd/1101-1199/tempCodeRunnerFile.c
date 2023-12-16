@@ -1,17 +1,16 @@
 #include <stdio.h>
+#include <string.h>
+
 int main()
 {
+    char string[100];
+    fgets(string, 100, stdin);
 
-    int n, input, maxNumber;
-    scanf("%d", &n);
+    int len = strlen(string);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < len; i++)
     {
-        scanf("%d", &input);
-        if (i == 0 || input > maxNumber)
-        {
-            maxNumber = input;
-        }
+        string[i] += 5;
     }
-    printf("%d\n", maxNumber);
+    printf("%s\n", string);
 }
