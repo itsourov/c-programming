@@ -4,28 +4,29 @@ using namespace std;
 
 int mod;
 
+int binMultiply(int a, int b)
+{
+    int ans = 0;
+    while (b > 0)
+    {
+        if (b & 1)
+        {
+            ans = (ans + a) % mod;
+        }
+        a = (a + a) % mod;
+        b >>= 1;
+    }
+    return ans;
+}
 int bigmod(int a, int b)
 {
     if (b == 0)
         return 1 % mod;
     int x = bigmod(a, b / 2);
-    x = (x * x) % mod;
+    x = binMultiply(x, x);
     if (b % 2 == 1)
-        x = (x * a) % mod;
+        x = binMultiply(x, a);
     return x;
-}
-
-int digitCount(int n)
-{
-
-    int cnt = 0;
-    while (n > 0)
-    {
-        n /= 10;
-        cnt++;
-    }
-
-    return cnt;
 }
 
 signed main()
@@ -35,51 +36,37 @@ signed main()
     int n;
 
     cin >> n;
-    int arr[n]; // for storing the base;
-
-    map<int, int> mp; // store <base,expononet>
+    int a[n], b[n];
 
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin >> a[i];
     }
-    int temp;
+    map<int, int> primeFactorization;
     for (int i = 0; i < n; i++)
     {
-        cin >> temp;
-        mp[arr[i]] += temp;
+        cin >> b[i];
+        primeFactorization[a[i]] += b[i];
     }
+
     cin >> mod;
-
     int ans = 1;
-    bool divCountEven = false;
-    double logSum = 0;
-    for (auto item : mp)
+    double digitCountInNumberOfDivisors = 0.0;
+    bool hasEven = false;
+    for (auto item : primeFactorization)
     {
+
         ans *= bigmod(item.first, item.second);
         ans %= mod;
 
-        int temp = (item.second + 1);
-        logSum += log10(temp);
-        if (temp % 2 == 0)
-        {
-            divCountEven = true;
-        }
-        else
-        {
-            if (divCountEven)
-            {
-                divCountEven = true;
-            }
-            else
-            {
-                divCountEven = false;
-            }
-        }
+        if ((item.second + 1) % 2 == 0)
+            hasEven = true; // multiplication er khetre jekono akta even holei to total output even asbe
+
+        digitCountInNumberOfDivisors += log10(item.second + 1);
     }
 
     cout << ans << endl;
-    if (divCountEven)
+    if (hasEven)
     {
         cout << "Even" << endl;
     }
@@ -87,6 +74,6 @@ signed main()
     {
         cout << "Odd" << endl;
     }
-    int digits = floor(logSum) + 1;
-    cout << (digits) << endl;
+
+    cout << floor(digitCountInNumberOfDivisors) + 1 << endl;
 }

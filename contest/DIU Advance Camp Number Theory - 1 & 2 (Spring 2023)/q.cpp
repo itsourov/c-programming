@@ -2,28 +2,45 @@
 using namespace std;
 
 #define int long long
-const int N = 10e6;
-int divCount[N + 1];
 signed main()
 {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    for (int i = 2; i <= N; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        for (int j = i; j <= N; j += i)
+        int n;
+        cin >> n;
+
+        int count = 1;
+        int tempc = 1;
+        while (n % 2 == 0)
         {
-            divCount[j]++;
+            tempc++;
+            n /= 2;
         }
-    }
+        count *= tempc;
 
-    int n;
-    cin >> n;
-    while (n--)
-    {
-        int x;
-        cin >> x;
+        for (int i = 3; i * i <= n; i += 2)
+        {
+            if (n % i == 0)
+            {
+                int tempCount = 1;
+                while (n % i == 0)
+                {
+                    tempCount++;
+                    n /= i;
+                }
+                count *= tempCount;
+            }
+        }
+        if (n > 1)
+        {
+            count *= 2;
+        }
 
-        cout << divCount[x] + 1 << endl;
+        cout << count << endl;
     }
 }

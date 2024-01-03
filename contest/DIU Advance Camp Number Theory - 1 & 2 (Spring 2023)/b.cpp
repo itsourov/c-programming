@@ -22,25 +22,33 @@ bool isPrime(int n)
 int getDivCount(int n)
 {
 
-    int ans = 1;
-    for (int i = 2; i * i <= n; i++)
+    int count = 1;
+    int tempc = 1;
+    while (n % 2 == 0)
+    {
+        tempc++;
+        n /= 2;
+    }
+    count *= tempc;
+
+    for (int i = 3; i * i <= n; i += 2)
     {
         if (n % i == 0)
         {
-            int temp = 0;
+            int tempCount = 1;
             while (n % i == 0)
             {
+                tempCount++;
                 n /= i;
-                temp++;
             }
-            ans *= (temp + 1);
+            count *= tempCount;
         }
     }
     if (n > 1)
     {
-        ans *= 2;
+        count *= 2;
     }
-    return ans;
+    return count;
 }
 signed main()
 {
@@ -57,11 +65,11 @@ signed main()
         for (int i = l; i <= r; i++)
         {
             int divCount = getDivCount(i);
-            vt.push_back({divCount, i});
+            vt.push_back({divCount, i * (-1)});
         }
 
         sort(vt.begin(), vt.end());
 
-        printf("Between %lld and %lld, %lld has a maximum of %lld divisors.\n", l, r, vt.back().second, vt.back().first);
+        printf("Between %lld and %lld, %lld has a maximum of %lld divisors.\n", l, r, vt.back().second * -1, vt.back().first);
     }
 }
