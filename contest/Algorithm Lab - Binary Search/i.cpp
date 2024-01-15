@@ -2,6 +2,17 @@
 using namespace std;
 #define int long long
 
+vector<int> arr;
+bool isPosible(int mid, int n)
+{
+    for (int i = 0; i < mid; i++)
+    {
+        if (arr[i] * 2 > arr[n - mid + i])
+            return false;
+    }
+    return true;
+}
+
 signed main()
 {
     ios::sync_with_stdio(0);
@@ -10,40 +21,37 @@ signed main()
     int n;
     cin >> n;
 
-    int arr[n];
+    arr.resize(n);
 
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    sort(arr, arr + n);
-    // cout << "After sorting: ";
-    // for (int i = 0; i < n; i++)
-    //     cout << arr[i] << " ";
+    sort(arr.begin(), arr.end());
+
+    // for (auto item : arr)
+    //     cout << item << " ";
     // cout << endl;
+    int l = 0;
+    int r = n;
 
-    int count = n;
-    for (int i = n - 1; i >= 0; i--)
+    while (l + 1 < r)
     {
-        if (arr[i] != -1)
+        int mid = (l + r) / 2;
+
+        if (isPosible(mid, n))
         {
-            // cout << "finding " << arr[i] / 2 << endl;
-
-            auto f = upper_bound(arr, arr + n, arr[i] / 2);
-
-            if (*f != -1)
-            {
-                *f = -1;
-                arr[i] = -1;
-                count--;
-                // cout << "found --- " << count << endl;
-
-                // for (int i = 0; i < n; i++)
-                //     cout << arr[i] << " ";
-                // cout << endl;
-            }
+            // cout << "possible " << mid << endl;
+            l = mid;
+        }
+        else
+        {
+            // cout << "not possible " << mid << endl;
+            r = mid;
         }
     }
-    cout << count << endl;
+    if (l > n / 2)
+        l = n / 2;
+    cout << n - l << endl;
 }
