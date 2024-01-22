@@ -16,20 +16,33 @@ signed main()
     {
         cin >> arr[i];
     }
-    int l = 0, r = 0;
+    int l = 0;
+    int r = 0;
     int sum = 0;
-    int maxL = 0;
-    for (int i = 0; i < n; i++)
+    int minSongs = LONG_MAX;
+    int minL = 0;
+    while (r < n)
     {
-        r = i;
-        sum += arr[i];
+        sum += arr[r];
 
-        while (sum > s && l < n)
+        while (sum >= s)
         {
-            sum -= arr[l++];
+
+            if (r - l + 1 < minSongs)
+            {
+                minSongs = r - l + 1;
+                minL = l;
+            }
+
+            sum -= arr[l];
+            l++;
         }
-        // cout << r << " " << l << endl;
-        maxL = max(r - l + 1, maxL);
+
+        r++;
     }
-    cout << maxL << endl;
+    if (minSongs == LONG_MAX)
+    {
+        cout << sum << endl;
+    }
+    cout << minL + 1 << " " << minSongs << endl;
 }
