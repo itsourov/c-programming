@@ -22,6 +22,8 @@
         "deque": "cpp",
         "forward_list": "cpp",
         "list": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "algorithm": "cpp",
+        "iosfwd": "cpp"
     }
 }
