@@ -7,54 +7,36 @@ void solve()
 {
     int n;
     cin >> n;
-    int arr[n];
+    int temp;
+    map<int, int> mp;
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin >> temp;
+        mp[temp]++;
     }
-    sort(arr, arr + n, greater<int>());
-    int count = 0;
-    int threeCount = 0;
-    int twoCount = 0;
-    int oneCount = 0;
-    for (int i = 0; i < n; i++)
+    int ans = 0;
+
+    ans += mp[4];
+    ans += mp[3];
+    mp[1] -= min(mp[1], mp[3]);
+
+    ans += mp[2] / 2;
+    if (mp[2] % 2 != 0)
     {
-        if (arr[i] == 4)
-        {
-            count++;
-        }
-        else if (arr[i] == 3)
-        {
-            threeCount++;
-        }
-        else if (arr[i] == 2)
-        {
-            twoCount++;
-        }
-
-        else if (arr[i] == 1)
-        {
-            oneCount++;
-        }
+        ans++;
+        mp[1] -= 2;
     }
-
-    int minOfOneThree = min(oneCount, threeCount);
-    count += minOfOneThree;
-    oneCount -= minOfOneThree;
-    threeCount -= minOfOneThree;
-    count += threeCount;
-    threeCount = 0;
-
-    count += twoCount / 2;
-    twoCount %= 2;
-
-    int baki = oneCount + twoCount;
-    count += baki / 4;
-    if (baki % 4 != 0)
+    if (mp[1] > 0)
     {
-        count++;
+        ans += mp[1] / 4;
+
+        if (mp[1] % 4 != 0)
+        {
+            ans++;
+        }
     }
-    cout << count << endl;
+
+    cout << ans << endl;
 }
 signed main()
 {

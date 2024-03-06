@@ -11,21 +11,21 @@ int main()
         int x;
         scanf("%d", &x);
 
-        int sum = 0;
-        for (int i = 1; i < x; i++)
+        int count = 0;
+        for (int i = 2; i < x; i++)
         {
             if (x % i == 0)
             {
-                sum += i;
+                count++;
             }
         }
-        if (sum == x)
+        if (count == 0)
         {
-            printf("%d eh perfeito\n", x);
+            printf("%d eh primo\n", x);
         }
         else
         {
-            printf("%d nao eh perfeito\n", x);
+            printf("%d nao eh primo\n", x);
         }
     }
 }

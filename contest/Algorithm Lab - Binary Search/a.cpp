@@ -7,29 +7,34 @@ void solve(int tc)
     int n;
     cin >> n;
     int arr[n];
-    int prev = 0, current;
-    map<int, int> mp;
+    int dif[n];
     for (int i = 0; i < n; i++)
     {
-        cin >> current;
-
-        arr[i] = current - prev;
-        prev = current;
-        mp[arr[i]]++;
-        cout << arr[i] << " ";
+        cin >> arr[i];
     }
-    int ans = 0;
-    for (int i = n - 1; i >= 0; i--)
+    dif[0] = arr[0];
+    int maxEl = dif[0];
+    for (int i = 1; i < n; i++)
     {
-        if (arr[i] > ans + 1)
-            ans = arr[i];
-        else
+        dif[i] = arr[i] - arr[i - 1];
+        maxEl = max(dif[i], maxEl);
+    }
+
+    int temp = maxEl;
+    for (int i = 0; i < n; i++)
+    {
+        if (dif[i] == temp)
         {
+            temp--;
+        }
+        else if (temp < dif[i])
+        {
+            maxEl++;
+            break;
         }
     }
 
-    cout << endl;
-    // printf("Case %lld: %lld\n", tc, k);
+    printf("Case %lld: %lld\n", tc, maxEl);
 }
 signed main()
 {
