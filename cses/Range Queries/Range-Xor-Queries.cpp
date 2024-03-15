@@ -14,7 +14,7 @@ int build(int l, int r, int index, int tree[], int arr[])
     int a = build(l, mid, index * 2, tree, arr);
     int b = build(mid + 1, r, (index * 2) + 1, tree, arr);
 
-    return tree[index - 1] = min(a, b);
+    return tree[index - 1] = a ^ b;
 }
 int search(int l, int r, int index, int tree[], int qs, int qe)
 {
@@ -24,12 +24,12 @@ int search(int l, int r, int index, int tree[], int qs, int qe)
     }
     if (l > qe || r < qs)
     {
-        return INT_MAX;
+        return 0;
     }
     int mid = (l + r) / 2;
     int a = search(l, mid, index * 2, tree, qs, qe);
     int b = search(mid + 1, r, (index * 2) + 1, tree, qs, qe);
-    return min(a, b);
+    return a ^ b;
 }
 void solve()
 {

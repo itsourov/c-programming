@@ -30,6 +30,8 @@
         "stack": "cpp",
         "temp": "cpp",
         "ratio": "cpp",
-        "string.h": "c"
+        "string.h": "c",
+        "span": "cpp",
+        "chrono": "cpp"
     }
 }

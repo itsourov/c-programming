@@ -14,7 +14,7 @@ int build(int l, int r, int index, int tree[], int arr[])
     int a = build(l, mid, index * 2, tree, arr);
     int b = build(mid + 1, r, (index * 2) + 1, tree, arr);
 
-    return tree[index - 1] = min(a, b);
+    return tree[index - 1] = a + b;
 }
 int search(int l, int r, int index, int tree[], int qs, int qe)
 {
@@ -24,12 +24,28 @@ int search(int l, int r, int index, int tree[], int qs, int qe)
     }
     if (l > qe || r < qs)
     {
-        return INT_MAX;
+        return 0;
     }
     int mid = (l + r) / 2;
     int a = search(l, mid, index * 2, tree, qs, qe);
     int b = search(mid + 1, r, (index * 2) + 1, tree, qs, qe);
-    return min(a, b);
+    return a + b;
+}
+int update(int l, int r, int index, int k, int u, int tree[])
+{
+    if (l == r && l == k)
+    {
+        return tree[index - 1] = u;
+    }
+    if (r < k || l > k)
+    {
+        return tree[index - 1];
+    }
+
+    int mid = (r + l) / 2;
+    int a = update(l, mid, index * 2, k, u, tree);
+    int b = update(mid + 1, r, (index * 2) + 1, k, u, tree);
+    return tree[index - 1] = a + b;
 }
 void solve()
 {
@@ -49,11 +65,16 @@ void solve()
     // }
     // cout << endl;
 
-    int l, r;
+    int type, a, b;
     for (int i = 0; i < q; i++)
     {
-        cin >> l >> r;
-        cout << search(1, n, 1, tree, l, r) << endl;
+        cin >> type >> a >> b;
+        if (type == 2)
+            cout << search(1, n, 1, tree, a, b) << endl;
+        else
+        {
+            update(1, n, 1, a, b, tree);
+        }
     }
 }
 signed main()
