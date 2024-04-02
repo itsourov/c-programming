@@ -3,7 +3,13 @@ using namespace std;
 
 int main()
 {
-    int a = 59;
-    int i = 4;
-    int b = a & (~(a << (i + 1) - 1));
+    map<int, int> mp;
+    mp[3] = 10;
+
+    if (mp.find(40) != mp.end())
+    {
+        cout << "found" << endl;
+    }
+
+    cout << mp.size() << endl;
 }

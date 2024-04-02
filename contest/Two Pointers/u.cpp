@@ -5,27 +5,36 @@ using namespace std;
 // int freq[1000000 + 10];
 void solve()
 {
-    int n, m;
+    int n, m, last = 0;
     cin >> n >> m;
-    int vill[n];
+    int a[n], b[m];
     for (int i = 0; i < n; i++)
     {
-        cin >> vill[i];
+        cin >> a[i];
     }
-    int tow[m];
+    sort(a, a + n);
+
     for (int i = 0; i < m; i++)
     {
-        cin >> tow[i];
+
+        cin >> b[i];
     }
-    int j = 0;
-    int ans = 0;
+
+    int t = 0;
     for (int i = 0; i < n; i++)
     {
-        if (j < m - 1)
-            ans = max(ans, min(abs(tow[j] - vill[i]), abs(tow[j + 1] - vill[i])));
-        else
-            ans = max(ans, abs(tow[j] - vill[i]));
+        int ans = 1e10;
+        for (int j = t; j < m; j++)
+        {
+            int temp = abs(a[i] - b[j]);
+            ans = min(temp, ans);
+            if (ans < temp)
+                break;
+            t = j;
         }
+        last = max(last, ans);
+    }
+    cout << last << endl;
 }
 signed main()
 {

@@ -1,0 +1,1 @@
+cout << zero << " " << one << endl;

@@ -1,37 +1,5 @@
 {
     "files.associations": {
-        "vector": "cpp",
-        "ostream": "cpp",
-        "complex": "cpp",
-        "valarray": "cpp",
-        "iostream": "cpp",
-        "__bit_reference": "cpp",
-        "__hash_table": "cpp",
-        "__tree": "cpp",
-        "map": "cpp",
-        "set": "cpp",
-        "string": "cpp",
-        "string_view": "cpp",
-        "unordered_map": "cpp",
-        "unordered_set": "cpp",
-        "ios": "cpp",
-        "iomanip": "cpp",
-        "initializer_list": "cpp",
-        "__split_buffer": "cpp",
-        "array": "cpp",
-        "deque": "cpp",
-        "forward_list": "cpp",
-        "list": "cpp",
-        "regex": "cpp",
-        "algorithm": "cpp",
-        "iosfwd": "cpp",
-        "bitset": "cpp",
-        "queue": "cpp",
-        "stack": "cpp",
-        "temp": "cpp",
-        "ratio": "cpp",
-        "string.h": "c",
-        "span": "cpp",
-        "chrono": "cpp"
+        "iostream": "cpp"
     }
 }
