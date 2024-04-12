@@ -5,21 +5,28 @@ using namespace std;
 
 void solve()
 {
-    int n, x;
-    cin >> n >> x;
+    int n, q;
+    cin >> n >> q;
     int arr[n];
-    map<int, int> mp;
-    mp[0] = 1;
-    int sum = 0;
-    int ans = 0;
+    int ps[n];
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
-        sum += arr[i];
-        ans += mp[sum - x];
-        mp[sum]++;
+        if (i == 0)
+        {
+            ps[i] = arr[i];
+        }
+        else
+        {
+            ps[i] = ps[i - 1] + arr[i];
+        }
     }
-    cout << ans << endl;
+    while (q--)
+    {
+        int l, r;
+        cin >> l >> r;
+        cout << ps[r - 1] - ps[l - 1] + arr[l - 1] << endl;
+    }
 }
 signed main()
 {
@@ -27,8 +34,8 @@ signed main()
     cin.tie(0);
 
     int t;
-    t = 1;
     // cin >> t;
+    t = 1;
 
     while (t--)
     {

@@ -1,5 +1,20 @@
 {
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "map": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "stacktrace": "cpp",
+        "valarray": "cpp",
+        "ios": "cpp",
+        "*.tcc": "cpp",
+        "random": "cpp",
+        "ostream": "cpp",
+        "bitset": "cpp",
+        "set": "cpp"
     }
 }

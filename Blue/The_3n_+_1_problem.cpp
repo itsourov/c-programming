@@ -8,10 +8,10 @@ void solve()
 {
     int l, r;
 
-    while (cin >> l >> r)
+    while (scanf("%lld %lld", &l, &r) == 2)
     {
         int ans = 0;
-
+        cout << l << " " << r << " ";
         if (l > r)
             swap(l, r);
         for (int i = l; i <= r; i++)
@@ -36,7 +36,7 @@ void solve()
             ans = max(count, ans);
         }
 
-        cout << l << " " << r << " " << ans << endl;
+        cout << ans << endl;
     }
 }
 signed main()

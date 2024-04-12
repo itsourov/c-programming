@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -5,21 +6,19 @@ using namespace std;
 
 void solve()
 {
-    int n, x;
-    cin >> n >> x;
-    int arr[n];
+    int n, m;
+    cin >> n >> m;
     map<int, int> mp;
-    mp[0] = 1;
-    int sum = 0;
-    int ans = 0;
+    int x;
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
-        sum += arr[i];
-        ans += mp[sum - x];
-        mp[sum]++;
+        cin >> x;
+        mp[x]++;
     }
-    cout << ans << endl;
+    for (int i = 1; i <= m; i++)
+    {
+        cout << ceil(mp[i] / 12.0) << endl;
+    }
 }
 signed main()
 {
@@ -29,9 +28,11 @@ signed main()
     int t;
     t = 1;
     // cin >> t;
-
+    // int tc = 1;
     while (t--)
     {
+        // cout << "Case " << tc << ":" << endl;
         solve();
+        // tc++;
     }
 }

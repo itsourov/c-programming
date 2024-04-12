@@ -2,21 +2,24 @@
 using namespace std;
 #define int long long
 #define endl "\n"
-void rec(int visited[], int arr[])
-{
-}
+
 void solve()
 {
     int n;
     cin >> n;
-    int a[n];
+    int arr[n];
+    int sum = 0;
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
+        cin >> arr[i];
+        sum += arr[i];
     }
-    sort(a, a + n);
-    int i = 0, j = n - 2, k = 1, l = n - 1;
-    int ans = abs(a[i] - a[j]) + abs(a[j] - a[k]) + abs(a[k] - a[l]) + abs(a[l] - a[i]);
+    int ans = sum / 5;
+
+    if (sum % 5 != 0)
+    {
+        ans++;
+    }
     cout << ans << endl;
 }
 signed main()
@@ -24,11 +27,14 @@ signed main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int t;
-    cin >> t;
-    // t = 1;
+    int t = 1;
+    // cin >> t;
+    // int tc = 1;
     while (t--)
     {
+        // cout << "Case " << tc << ":" << endl;
         solve();
+        // tc++;
     }
+    return 0;
 }

@@ -5,19 +5,21 @@ using namespace std;
 
 void solve()
 {
-    int n, x;
-    cin >> n >> x;
+    int n;
+    cin >> n;
     int arr[n];
-    map<int, int> mp;
-    mp[0] = 1;
     int sum = 0;
-    int ans = 0;
+    int ps[n + 1] = {0};
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
         sum += arr[i];
-        ans += mp[sum - x];
-        mp[sum]++;
+        ps[i + 1] = ps[i] + arr[i];
+    }
+    int ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        ans += arr[i] * (sum - ps[i + 1]);
     }
     cout << ans << endl;
 }
@@ -26,12 +28,14 @@ signed main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int t;
-    t = 1;
+    int t = 1;
     // cin >> t;
-
+    // int tc = 1;
     while (t--)
     {
+        // cout << "Case " << tc << ":" << endl;
         solve();
+        // tc++;
     }
+    return 0;
 }

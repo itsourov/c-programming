@@ -2,7 +2,7 @@
 using namespace std;
 
 #define int long long
-const int N = 100000000;
+const int N = 80000000;
 bool sieve[N + 2];
 vector<int> primes;
 void solve(int n)
