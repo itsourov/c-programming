@@ -9,4 +9,5 @@ int main()
     {
         printf("index %d has value : %d\n", i, arr[i]);
     }
+    
 }

@@ -4,30 +4,49 @@ using namespace std;
 #define int long long
 #define endl "\n"
 
+bool isInside(int x, int y, int xi, int yi, int ri)
+{
+    return (x - xi) * (x - xi) + (y - yi) * (y - yi) <= ri * ri;
+}
+
 void solve()
 {
-    int n, a, b;
-    cin >> n >> a >> b;
-    vector<int> vt(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> vt[i];
-    }
-    sort(vt.begin(), vt.end());
 
-    int ans1 = 0;
-    for (int i = 0; i < n; i++)
+    int n, r;
+    cin >> n >> r;
+    int rarr[n], x[n], y[n];
+    for (int i = 0; i < n; ++i)
     {
-        ans1 += (i + 1) * (a * vt[i] + b);
+        cin >> rarr[i] >> x[i] >> y[i];
+    }
+    int count = 0;
+
+    for (int i = -r; i <= r; ++i)
+    {
+        for (int j = -r; j <= r; ++j)
+        {
+
+            if (i * i + j * j <= r * r)
+            {
+
+                bool inside = false;
+                for (int k = 0; k < n; ++k)
+                {
+                    if (isInside(i, j, x[k], y[k], rarr[k]))
+                    {
+                        inside = true;
+                        break;
+                    }
+                }
+                if (inside)
+                {
+                    ++count;
+                }
+            }
+        }
     }
 
-    reverse(vt.begin(), vt.end());
-    int ans2 = 0;
-    for (int i = 0; i < n; i++)
-    {
-        ans2 += (i + 1) * (a * vt[i] + b);
-    }
-    cout << max(ans1, ans2) << endl;
+    cout << count << endl;
 }
 signed main()
 {

@@ -7,7 +7,7 @@ void solve()
     int n, s;
     cin >> n >> s;
 
-    vector<pair<int, int>> vt;
+    vector<pair<int, int>> vt(n);
     for (int i = 0; i < n; i++)
     {
         cin >> vt[i].first >> vt[i].second;
@@ -16,7 +16,10 @@ void solve()
     int totalpenalty = 0;
     for (int i = 0; i < n; ++i)
     {
+        s += vt[i].first;
+        totalpenalty += max(0LL, s - vt[i].second);
     }
+    cout << totalpenalty << endl;
 }
 
 signed main()

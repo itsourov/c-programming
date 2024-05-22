@@ -1,32 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define int long long
 
-bool checkSubstringIt(const char *str)
+signed main()
 {
-    const char *result = strstr(str, "it");
-    return result != NULL;
-}
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
 
-int main()
-{
-    int t;
-    scanf("%d", &t);
-    getchar();
-
-    while (t--)
+    int n;
+    cin >> n;
+    if (n <= 20)
     {
-        char str[101];
-        fgets(str, sizeof(str) / sizeof(str[0]), stdin);
-
-        if (checkSubstringIt(str))
+        int fact = 1;
+        while (n)
         {
-            printf("YES\n");
+            fact *= n;
+            n--;
         }
-        else
-        {
-            printf("NO\n");
-        }
+        cout << fact % 10000 << endl;
     }
-
-    return 0;
+    else
+    {
+        cout << "0000" << endl;
+    }
 }
