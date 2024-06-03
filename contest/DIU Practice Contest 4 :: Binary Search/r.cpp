@@ -4,17 +4,20 @@ using namespace std;
 #define endl "\n"
 
 int a, b, x, y;
-bool isPossible(double mid)
+bool isPossible(int mid)
 {
     return x * mid <= a && y * mid <= b;
 }
 void solve()
 {
     cin >> a >> b >> x >> y;
-    if (a < b)
-        swap(a, b);
-    if (x < y)
-        swap(x, y);
+    // if (a < b)
+    //     swap(a, b);
+    // if (x < y)
+    //     swap(x, y);
+    int gc = gcd(x, y);
+    x /= gc;
+    y /= gc;
 
     int l = 0, r = 1;
     while (isPossible(r))
